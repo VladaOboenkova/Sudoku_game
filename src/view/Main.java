@@ -2,7 +2,6 @@ package view;
 
 import javafx.application.Application;
 import javafx.geometry.Insets;
-import javafx.geometry.Pos;
 import javafx.scene.control.Button;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
@@ -11,13 +10,9 @@ import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
 import javafx.stage.Stage;
 import javafx.scene.Scene;
-import javafx.scene.Group;
-
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
-import java.io.InputStream;
 
-import static javafx.scene.paint.Color.LIGHTPINK;
 
 public class Main extends Application{
 
@@ -31,19 +26,20 @@ public class Main extends Application{
 
         BorderPane box = new BorderPane();
         box.setBackground(new Background(new BackgroundFill
-                (Color.LAVENDERBLUSH, CornerRadii.EMPTY, new Insets(0, 0, 0, 0))));
+                (Color.LAVENDERBLUSH, CornerRadii.EMPTY, new Insets(10, 10, 10, 10))));
         Scene scene = new Scene(box);
 
-        FileInputStream input = new FileInputStream("C:/Users/Влада/IdeaProjects/Sudoku_game/13.jpg");
+        FileInputStream input = new FileInputStream("13_1.png");
         Image image = new Image(input);
         ImageView imageView = new ImageView(image);
 
         Button startButton = new Button("Start new game", imageView);
         Font startButtonFont = new Font("Gigi", 25);
         startButton.setFont(startButtonFont);
+        startButton.setStyle("-fx-focus-color: firebrick; -fx-base: WHITE;");
 
         box.setRight(startButton);
-        box.setPadding(new Insets(35, 60, 20, 20));
+        box.setPadding(new Insets(35, 50, 20, 20));
 
 
         stage.setResizable(false);
