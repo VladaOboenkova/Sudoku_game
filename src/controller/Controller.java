@@ -5,5 +5,13 @@ import view.Main;
 
 public class Controller {
 
+    Main main = new Main();
+
+    public void chooseCell(){
+
+
+
+
+    }
 
 }

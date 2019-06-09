@@ -115,7 +115,7 @@ public class Main extends Application{
 
         stage.setScene(scene);
         stage.setTitle("Sudoku");
-        stage.setWidth(1000);
+        stage.setWidth(870);
         stage.setHeight(580);
         stage.show();
     }
