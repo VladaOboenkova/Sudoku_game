@@ -1,8 +1,13 @@
 package model;
 
-import java.util.Random;
 
 public class Logic {
+
+    private int[][] playersArray = new int[9][9];
+
+    public int[][] getPlayersArray() {
+        return playersArray;
+    }
 
     public int[][] generateBoard() {
 
@@ -47,8 +52,17 @@ public class Logic {
         if (boardNumber == 3) choosenBoard = boardThree;
 
         return choosenBoard;
-        }
     }
+
+    private int[][] board = generateBoard();
+
+    public int[][] getBoard() {
+        return board;
+    }
+
+
+
+}
 
 
 
