@@ -1,5 +1,6 @@
 package view;
 
+import controller.Controller;
 import javafx.application.Application;
 import javafx.geometry.Insets;
 import javafx.scene.canvas.Canvas;
@@ -17,6 +18,8 @@ import java.io.FileNotFoundException;
 
 
 public class Main extends Application{
+
+    private Controller controller = new Controller();
 
     public static void main(String[] args) {
 
@@ -91,25 +94,10 @@ public class Main extends Application{
 
         Canvas field = new Canvas(450, 450);
         GraphicsContext graphicsContext = field.getGraphicsContext2D();
-        graphicsContext.setFill(Color.WHITE);
-
-        for (int column = 0; column < 9; column++){
-            for (int row = 0; row < 9; row++){
-
-                int cellSide = 45;
-                int coordinateX = column * 50;
-                int coordinateY = row * 50;
-
-                graphicsContext.fillRect(coordinateX, coordinateY, cellSide, cellSide);
-            }
-        }
-
-        graphicsContext.strokeLine(0, 149, 445, 149);
-        graphicsContext.strokeLine(0, 297, 445, 297);
-        graphicsContext.strokeLine(149, 0, 149, 445);
-        graphicsContext.strokeLine(297, 0, 297, 445);
 
         box.setCenter(field);
+
+        startButton.setOnAction(event -> controller.createBoard(graphicsContext));
 
         stage.setResizable(false);
 
@@ -119,4 +107,5 @@ public class Main extends Application{
         stage.setHeight(580);
         stage.show();
     }
+
 }

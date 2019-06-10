@@ -53,15 +53,6 @@ public class Logic {
 
         return choosenBoard;
     }
-
-    private int[][] board = generateBoard();
-
-    public int[][] getBoard() {
-        return board;
-    }
-
-
-
 }
 
 
