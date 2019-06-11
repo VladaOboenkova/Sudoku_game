@@ -58,48 +58,10 @@ public class Controller {
 
     }
 
-    public void enterOne(int x, int y){
-            int[][] playersArray = logic.getPlayersArray();
-            playersArray[y][x] = 1;
+    public void enter(int x, int y, int number){
+        int[][] playersArray = logic.getPlayersArray();
+        playersArray[y][x] = number;
+        System.out.println(Arrays.deepToString(playersArray));
     }
 
-    public void enterTwo(int x, int y){
-        int[][] playersArray = logic.getPlayersArray();
-        playersArray[y][x] = 2;
-    }
-
-    public void enterThree(int x, int y){
-        int[][] playersArray = logic.getPlayersArray();
-        playersArray[y][x] = 3;
-    }
-
-    public void enterFour(int x, int y){
-        int[][] playersArray = logic.getPlayersArray();
-        playersArray[y][x] = 4;
-    }
-
-    public void enterFive(int x, int y){
-        int[][] playersArray = logic.getPlayersArray();
-        playersArray[y][x] = 5;
-    }
-
-    public void enterSix(int x, int y){
-        int[][] playersArray = logic.getPlayersArray();
-        playersArray[y][x] = 6;
-    }
-
-    public void enterSeven(int x, int y){
-        int[][] playersArray = logic.getPlayersArray();
-        playersArray[y][x] = 7;
-    }
-
-    public void enterEight(int x, int y){
-        int[][] playersArray = logic.getPlayersArray();
-        playersArray[y][x] = 8;
-    }
-
-    public void enterNine(int x, int y){
-        int[][] playersArray = logic.getPlayersArray();
-        playersArray[y][x] = 9;
-    }
 }

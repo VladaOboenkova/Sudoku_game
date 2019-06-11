@@ -4,7 +4,6 @@ package model;
 public class Logic {
 
     private int[][] playersArray = new int[9][9];
-
     public int[][] getPlayersArray() {
         return playersArray;
     }

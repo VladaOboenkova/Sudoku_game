@@ -15,6 +15,8 @@ import javafx.stage.Stage;
 import javafx.scene.Scene;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
+import java.util.ArrayList;
+import java.util.List;
 
 
 public class Main extends Application{
@@ -49,41 +51,39 @@ public class Main extends Application{
 
         Font inputButtonsFont = new Font("Gigi", 20);
 
+        List<Button> inputButtons = new ArrayList<>();
+
         Button buttonOne = new Button("1");
-        buttonOne.setFont(inputButtonsFont);
-        buttonOne.setStyle(buttonsStyle);
+        inputButtons.add(buttonOne);
 
         Button buttonTwo = new Button("2");
-        buttonTwo.setFont(inputButtonsFont);
-        buttonTwo.setStyle(buttonsStyle);
+        inputButtons.add(buttonTwo);
 
         Button buttonThree = new Button("3");
-        buttonThree.setFont(inputButtonsFont);
-        buttonThree.setStyle(buttonsStyle);
+        inputButtons.add(buttonThree);
 
         Button buttonFour = new Button("4");
-        buttonFour.setFont(inputButtonsFont);
-        buttonFour.setStyle(buttonsStyle);
+        inputButtons.add(buttonFour);
 
         Button buttonFive = new Button("5");
-        buttonFive.setFont(inputButtonsFont);
-        buttonFive.setStyle(buttonsStyle);
+        inputButtons.add(buttonFive);
 
         Button buttonSix = new Button("6");
-        buttonSix.setFont(inputButtonsFont);
-        buttonSix.setStyle(buttonsStyle);
+        inputButtons.add(buttonSix);
 
         Button buttonSeven = new Button("7");
-        buttonSeven.setFont(inputButtonsFont);
-        buttonSeven.setStyle(buttonsStyle);
+        inputButtons.add(buttonSeven);
 
         Button buttonEight = new Button("8");
-        buttonEight.setFont(inputButtonsFont);
-        buttonEight.setStyle(buttonsStyle);
+        inputButtons.add(buttonEight);
 
         Button buttonNine = new Button("9");
-        buttonNine.setFont(inputButtonsFont);
-        buttonNine.setStyle(buttonsStyle);
+        inputButtons.add(buttonNine);
+
+        for (Button button : inputButtons){
+            button.setFont(inputButtonsFont);
+            button.setStyle(buttonsStyle);
+        }
 
         VBox inputPanel = new VBox();
         inputPanel.setSpacing(5);
@@ -97,7 +97,8 @@ public class Main extends Application{
 
         box.setCenter(field);
 
-        startButton.setOnAction(event -> controller.createBoard(graphicsContext));
+        startButton.setOnAction(event ->
+                controller.createBoard(graphicsContext));
 
                 field.setOnMouseClicked(event -> {
                     int column = (int) event.getX() / 50;
@@ -111,39 +112,39 @@ public class Main extends Application{
                     graphicsContext.setFont(cellsFont);
 
                     buttonOne.setOnAction(event1 -> {
-                        controller.enterOne(column, row);
+                        controller.enter(column, row, 1);
                         graphicsContext.fillText("1", coordinateX, coordinateY);
                     });
                     buttonTwo.setOnAction(event1 -> {
-                        controller.enterTwo(column, row);
+                        controller.enter(column, row, 2);
                         graphicsContext.fillText("2", coordinateX, coordinateY);
                     });
                     buttonThree.setOnAction(event1 -> {
-                        controller.enterThree(column, row);
+                        controller.enter(column, row, 3);
                         graphicsContext.fillText("3", coordinateX, coordinateY);
                     });
                     buttonFour.setOnAction(event1 -> {
-                        controller.enterFour(column, row);
+                        controller.enter(column, row, 4);
                         graphicsContext.fillText("4", coordinateX, coordinateY);
                     });
                     buttonFive.setOnAction(event1 -> {
-                        controller.enterFive(column, row);
+                        controller.enter(column, row, 5);
                         graphicsContext.fillText("5", coordinateX, coordinateY);
                     });
                     buttonSix.setOnAction(event1 -> {
-                        controller.enterSix(column, row);
+                        controller.enter(column, row, 6);
                         graphicsContext.fillText("6", coordinateX, coordinateY);
                     });
                     buttonSeven.setOnAction(event1 -> {
-                        controller.enterSeven(column, row);
+                        controller.enter(column, row, 7);
                         graphicsContext.fillText("7", coordinateX, coordinateY);
                     });
                     buttonEight.setOnAction(event1 -> {
-                        controller.enterEight(column, row);
+                        controller.enter(column, row, 8);
                         graphicsContext.fillText("8", coordinateX, coordinateY);
                     });
                     buttonNine.setOnAction(event1 -> {
-                        controller.enterNine(column, row);
+                        controller.enter(column, row, 9);
                         graphicsContext.fillText("9", coordinateX, coordinateY);
                     });
             });
