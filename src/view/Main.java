@@ -99,6 +99,56 @@ public class Main extends Application{
 
         startButton.setOnAction(event -> controller.createBoard(graphicsContext));
 
+                field.setOnMouseClicked(event -> {
+                    int column = (int) event.getX() / 50;
+                    int row = (int) event.getY() / 50;
+
+                    int coordinateX = column * 53 + 3;
+                    int coordinateY = row * 52 + 19;
+
+                    graphicsContext.setFill(Color.DEEPPINK);
+                    Font cellsFont = new Font("Gigi", 25);
+                    graphicsContext.setFont(cellsFont);
+
+                    buttonOne.setOnAction(event1 -> {
+                        controller.enterOne(column, row);
+                        graphicsContext.fillText("1", coordinateX, coordinateY);
+                    });
+
+                    buttonTwo.setOnAction(event1 -> {
+                        controller.enterTwo(column, row);
+                        graphicsContext.fillText("2", coordinateX, coordinateY);
+                    });
+                    buttonThree.setOnAction(event1 -> {
+                        controller.enterThree(column, row);
+                        graphicsContext.fillText("3", coordinateX, coordinateY);
+                    });
+                    buttonFour.setOnAction(event1 -> {
+                        controller.enterFour(column, row);
+                        graphicsContext.fillText("4", coordinateX, coordinateY);
+                    });
+                    buttonFive.setOnAction(event1 -> {
+                        controller.enterFive(column, row);
+                        graphicsContext.fillText("5", coordinateX, coordinateY);
+                    });
+                    buttonSix.setOnAction(event1 -> {
+                        controller.enterSix(column, row);
+                        graphicsContext.fillText("6", coordinateX, coordinateY);
+                    });
+                    buttonSeven.setOnAction(event1 -> {
+                        controller.enterSeven(column, row);
+                        graphicsContext.fillText("7", coordinateX, coordinateY);
+                    });
+                    buttonEight.setOnAction(event1 -> {
+                        controller.enterEight(column, row);
+                        graphicsContext.fillText("8", coordinateX, coordinateY);
+                    });
+                    buttonNine.setOnAction(event1 -> {
+                        controller.enterNine(column, row);
+                        graphicsContext.fillText("9", coordinateX, coordinateY);
+                    });
+            });
+
         stage.setResizable(false);
 
         stage.setScene(scene);
