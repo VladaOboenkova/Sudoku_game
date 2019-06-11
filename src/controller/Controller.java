@@ -64,4 +64,8 @@ public class Controller {
         System.out.println(Arrays.deepToString(playersArray));
     }
 
+    public void clearPlayersArray(){
+        logic.setPlayersArray(new int[9][9]);
+    }
+
 }

@@ -4,8 +4,13 @@ package model;
 public class Logic {
 
     private int[][] playersArray = new int[9][9];
+
     public int[][] getPlayersArray() {
         return playersArray;
+    }
+
+    public void setPlayersArray(int[][] playersArray) {
+        this.playersArray = playersArray;
     }
 
     public int[][] generateBoard() {

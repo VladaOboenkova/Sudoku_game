@@ -97,8 +97,9 @@ public class Main extends Application{
 
         box.setCenter(field);
 
-        startButton.setOnAction(event ->
-                controller.createBoard(graphicsContext));
+        startButton.setOnAction(event ->{
+                controller.clearPlayersArray();
+                controller.createBoard(graphicsContext);});
 
                 field.setOnMouseClicked(event -> {
                     int column = (int) event.getX() / 50;
