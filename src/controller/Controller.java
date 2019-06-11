@@ -17,6 +17,10 @@ public class Controller {
 
     private int[][] choosenBoard;
 
+    public int[][] getChoosenBoard() {
+        return choosenBoard;
+    }
+
     public void createBoard(GraphicsContext graphicsContext) {
 
         graphicsContext.clearRect(0, 0, 450, 450);
@@ -66,6 +70,14 @@ public class Controller {
 
     public void clearPlayersArray(){
         logic.setPlayersArray(new int[9][9]);
+    }
+
+    public void deleteNumber(int x, int y){
+        if(choosenBoard[y][x] == 0) {
+            int[][] playersArray = logic.getPlayersArray();
+            playersArray[y][x] = 0;
+            System.out.println(Arrays.deepToString(playersArray));
+        }
     }
 
 }

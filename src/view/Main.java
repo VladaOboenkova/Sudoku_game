@@ -47,7 +47,7 @@ public class Main extends Application{
         startButton.setStyle(buttonsStyle);
 
         box.setRight(startButton);
-        box.setPadding(new Insets(45, 45, 20, 20));
+        box.setPadding(new Insets(25, 35, 20, 20));
 
         Font inputButtonsFont = new Font("Gigi", 20);
 
@@ -80,6 +80,9 @@ public class Main extends Application{
         Button buttonNine = new Button("9");
         inputButtons.add(buttonNine);
 
+        Button deleteButton = new Button("Del");
+        inputButtons.add(deleteButton);
+
         for (Button button : inputButtons){
             button.setFont(inputButtonsFont);
             button.setStyle(buttonsStyle);
@@ -87,9 +90,9 @@ public class Main extends Application{
 
         VBox inputPanel = new VBox();
         inputPanel.setSpacing(5);
-        inputPanel.setPadding(new Insets(7, 20 , 35, 0));
+        inputPanel.setPadding(new Insets(0, 10 , 35, 0));
         inputPanel.getChildren().addAll(buttonOne, buttonTwo, buttonThree, buttonFour, buttonFive, buttonSix,
-        buttonSeven, buttonEight, buttonNine);
+        buttonSeven, buttonEight, buttonNine, deleteButton);
         box.setLeft(inputPanel);
 
         Canvas field = new Canvas(450, 450);
@@ -147,6 +150,13 @@ public class Main extends Application{
                     buttonNine.setOnAction(event1 -> {
                         controller.enter(column, row, 9);
                         graphicsContext.fillText("9", coordinateX, coordinateY);
+                    });
+                    deleteButton.setOnAction(event1 -> {
+                        controller.deleteNumber(column, row);
+                        if (controller.getChoosenBoard()[row][column] == 0) {
+                            graphicsContext.setFill(Color.WHITE);
+                            graphicsContext.fillRect(column * 50, row * 50, 40, 40);
+                        }
                     });
             });
 
