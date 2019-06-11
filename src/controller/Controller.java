@@ -5,6 +5,8 @@ import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
 import model.Logic;
 
+import java.util.Arrays;
+
 public class Controller {
 
     private Logic logic = new Logic();
@@ -35,14 +37,13 @@ public class Controller {
         graphicsContext.strokeLine(149, 0, 149, 445);
         graphicsContext.strokeLine(297, 0, 297, 445);
 
+        int[][] board = getBoard();
+        choosenBoard = board;
         for (int column = 0; column < 9; column++) {
             for (int row = 0; row < 9; row++) {
 
                 int coordinateX = column * 53 + 3;
                 int coordinateY = row * 52 + 19;
-                int[][] board = getBoard();
-                choosenBoard = board;
-
                 graphicsContext.setFill(Color.BLACK);
                 Font cellsFont = new Font("Gigi", 25);
                 graphicsContext.setFont(cellsFont);
@@ -100,9 +101,5 @@ public class Controller {
     public void enterNine(int x, int y){
         int[][] playersArray = logic.getPlayersArray();
         playersArray[y][x] = 9;
-    }
-
-    public int[][] getChoosenBoard() {
-        return choosenBoard;
     }
 }

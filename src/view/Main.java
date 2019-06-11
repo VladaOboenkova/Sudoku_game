@@ -114,7 +114,6 @@ public class Main extends Application{
                         controller.enterOne(column, row);
                         graphicsContext.fillText("1", coordinateX, coordinateY);
                     });
-
                     buttonTwo.setOnAction(event1 -> {
                         controller.enterTwo(column, row);
                         graphicsContext.fillText("2", coordinateX, coordinateY);
