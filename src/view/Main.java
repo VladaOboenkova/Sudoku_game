@@ -3,6 +3,7 @@ package view;
 import controller.Controller;
 import javafx.application.Application;
 import javafx.geometry.Insets;
+import javafx.geometry.Pos;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.control.Button;
@@ -11,8 +12,10 @@ import javafx.scene.image.ImageView;
 import javafx.scene.layout.*;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
+import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import javafx.scene.Scene;
+
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
@@ -46,10 +49,50 @@ public class Main extends Application{
         startButton.setFont(buttonsFont);
         startButton.setStyle(buttonsStyle);
 
-        box.setRight(startButton);
         box.setPadding(new Insets(25, 35, 20, 20));
 
         Font inputButtonsFont = new Font("Gigi", 20);
+
+        Button checkButton = new Button("Check!");
+        checkButton.setFont(inputButtonsFont);
+        checkButton.setStyle(buttonsStyle);
+
+        Text winMessage = new Text("Congratulations! You won!");
+        winMessage.setFont(buttonsFont);
+        FlowPane winPane = new FlowPane();
+        winPane.getChildren().addAll(winMessage);
+        winPane.setAlignment(Pos.CENTER);
+        winPane.setBackground(new Background(new BackgroundFill
+                (Color.LAVENDERBLUSH, CornerRadii.EMPTY, new Insets(10, 10, 10, 10))));
+        Stage winStage = new Stage();
+        Scene winScene = new Scene(winPane);
+        winStage.setScene(winScene);
+        winStage.setWidth(350);
+        winStage.setHeight(200);
+
+        Text lossMessage = new Text("Check your answer!");
+        lossMessage.setFont(buttonsFont);
+        FlowPane lossPane = new FlowPane();
+        lossPane.getChildren().addAll(lossMessage);
+        lossPane.setAlignment(Pos.CENTER);
+        lossPane.setBackground(new Background(new BackgroundFill
+                (Color.LAVENDERBLUSH, CornerRadii.EMPTY, new Insets(10, 10, 10, 10))));
+        Stage lossStage = new Stage();
+        Scene lossScene = new Scene(lossPane);
+        lossStage.setScene(lossScene);
+        winStage.setWidth(350);
+        winStage.setHeight(200);
+
+        checkButton.setOnAction(event -> {
+                boolean result = controller.check();
+                if (result) winStage.show();
+                else lossStage.show();
+        });
+
+        VBox controlPanel = new VBox();
+        controlPanel.setSpacing(5);
+        controlPanel.getChildren().addAll(startButton, checkButton);
+        box.setRight(controlPanel);
 
         List<Button> inputButtons = new ArrayList<>();
 

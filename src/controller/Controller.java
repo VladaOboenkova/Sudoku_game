@@ -4,8 +4,9 @@ import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
 import model.Logic;
-
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 
 public class Controller {
 
@@ -59,14 +60,12 @@ public class Controller {
             }
 
         }
-
     }
 
     public void enter(int x, int y, int number){
-        if (choosenBoard[y][x] == 0) {
+        if (choosenBoard[y][x] == 0 && number >= 1 && number <= 9) {
             int[][] playersArray = logic.getPlayersArray();
             playersArray[y][x] = number;
-            System.out.println(Arrays.deepToString(playersArray));
         }
     }
 
@@ -78,8 +77,51 @@ public class Controller {
         if(choosenBoard[y][x] == 0) {
             int[][] playersArray = logic.getPlayersArray();
             playersArray[y][x] = 0;
-            System.out.println(Arrays.deepToString(playersArray));
         }
     }
 
+    public boolean check() {
+        int[][] playersArray = logic.getPlayersArray();
+
+        int[][] global = new int[9][9];
+        for (int column = 0; column < 9; column++) {
+            for (int row = 0; row < 9; row++) {
+                if (choosenBoard[row][column] == 0)
+                    global[row][column] = playersArray[row][column];
+                else global[row][column] = choosenBoard[row][column];
+            }
+        }
+        for (int row = 0; row < 9; row++) {
+            int counter = 0;
+            for (int column = 0; column < 9; column++) {
+                counter += global[row][column];
+            }
+            if (counter != 45) {
+                return false;
+            }
+        }
+        for (int column = 0; column < 9; column++) {
+            int counter = 0;
+            for (int row = 0; row < 9; row++) {
+                counter += global[row][column];
+            }
+            if (counter != 45) {
+                return false;
+            }
+        }
+        for (int row = 0; row < 9; row += 3) {
+            for (int column = 0; column < 9; column += 3) {
+                int counter = 0;
+                for (int clusterRow = 0; clusterRow < 3; clusterRow++) {
+                    for (int clusterColumn = 0; clusterColumn < 3; clusterColumn++) {
+                        counter += global[row + clusterRow][column + clusterColumn];
+                    }
+                }
+                if (counter != 45) {
+                    return false;
+                }
+            }
+        }
+        return true;
+    }
 }
