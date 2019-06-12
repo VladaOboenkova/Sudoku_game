@@ -1,6 +1,5 @@
 package model;
 
-
 public class Logic {
 
     private int[][] playersArray = new int[9][9];

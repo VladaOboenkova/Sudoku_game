@@ -116,40 +116,58 @@ public class Main extends Application{
                     graphicsContext.setFont(cellsFont);
 
                     buttonOne.setOnAction(event1 -> {
-                        controller.enter(column, row, 1);
-                        graphicsContext.fillText("1", coordinateX, coordinateY);
+                        if(controller.getChoosenBoard()[row][column] == 0) {
+                            controller.enter(column, row, 1);
+                            graphicsContext.fillText("1", coordinateX, coordinateY);
+                        }
                     });
                     buttonTwo.setOnAction(event1 -> {
-                        controller.enter(column, row, 2);
-                        graphicsContext.fillText("2", coordinateX, coordinateY);
+                        if(controller.getChoosenBoard()[row][column] == 0) {
+                            controller.enter(column, row, 2);
+                            graphicsContext.fillText("2", coordinateX, coordinateY);
+                        }
                     });
                     buttonThree.setOnAction(event1 -> {
-                        controller.enter(column, row, 3);
-                        graphicsContext.fillText("3", coordinateX, coordinateY);
+                        if(controller.getChoosenBoard()[row][column] == 0) {
+                            controller.enter(column, row, 3);
+                            graphicsContext.fillText("3", coordinateX, coordinateY);
+                        }
                     });
                     buttonFour.setOnAction(event1 -> {
-                        controller.enter(column, row, 4);
-                        graphicsContext.fillText("4", coordinateX, coordinateY);
+                        if(controller.getChoosenBoard()[row][column] == 0) {
+                            controller.enter(column, row, 4);
+                            graphicsContext.fillText("4", coordinateX, coordinateY);
+                        }
                     });
                     buttonFive.setOnAction(event1 -> {
-                        controller.enter(column, row, 5);
-                        graphicsContext.fillText("5", coordinateX, coordinateY);
+                        if(controller.getChoosenBoard()[row][column] == 0) {
+                            controller.enter(column, row, 5);
+                            graphicsContext.fillText("5", coordinateX, coordinateY);
+                        }
                     });
                     buttonSix.setOnAction(event1 -> {
-                        controller.enter(column, row, 6);
-                        graphicsContext.fillText("6", coordinateX, coordinateY);
+                        if(controller.getChoosenBoard()[row][column] == 0) {
+                            controller.enter(column, row, 6);
+                            graphicsContext.fillText("6", coordinateX, coordinateY);
+                        }
                     });
                     buttonSeven.setOnAction(event1 -> {
-                        controller.enter(column, row, 7);
-                        graphicsContext.fillText("7", coordinateX, coordinateY);
+                        if(controller.getChoosenBoard()[row][column] == 0) {
+                            controller.enter(column, row, 7);
+                            graphicsContext.fillText("7", coordinateX, coordinateY);
+                        }
                     });
                     buttonEight.setOnAction(event1 -> {
-                        controller.enter(column, row, 8);
-                        graphicsContext.fillText("8", coordinateX, coordinateY);
+                        if(controller.getChoosenBoard()[row][column] == 0) {
+                            controller.enter(column, row, 8);
+                            graphicsContext.fillText("8", coordinateX, coordinateY);
+                        }
                     });
                     buttonNine.setOnAction(event1 -> {
-                        controller.enter(column, row, 9);
-                        graphicsContext.fillText("9", coordinateX, coordinateY);
+                        if(controller.getChoosenBoard()[row][column] == 0) {
+                            controller.enter(column, row, 9);
+                            graphicsContext.fillText("9", coordinateX, coordinateY);
+                        }
                     });
                     deleteButton.setOnAction(event1 -> {
                         controller.deleteNumber(column, row);

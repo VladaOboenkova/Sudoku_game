@@ -63,9 +63,11 @@ public class Controller {
     }
 
     public void enter(int x, int y, int number){
-        int[][] playersArray = logic.getPlayersArray();
-        playersArray[y][x] = number;
-        System.out.println(Arrays.deepToString(playersArray));
+        if (choosenBoard[y][x] == 0) {
+            int[][] playersArray = logic.getPlayersArray();
+            playersArray[y][x] = number;
+            System.out.println(Arrays.deepToString(playersArray));
+        }
     }
 
     public void clearPlayersArray(){
